@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -9,12 +9,13 @@ import {
 } from "react-native";
 import { Checkbox, IconButton } from "react-native-paper";
 import Footer from "../components/Footer";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Todo() {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState("");
 
-  const addTodo = () => {
+  const addTodo = async () => {
     if (newTodo === "") {
       return;
     }
@@ -22,21 +23,35 @@ export default function Todo() {
       text: newTodo,
       checked: false,
     };
-    setTodos([...todos, todoItem]);
+    const updatedTodos = [...todos, todoItem];
+    await AsyncStorage.setItem("todos", JSON.stringify(updatedTodos));
+    setTodos(updatedTodos);
     setNewTodo("");
   };
 
-  const removeTodo = (index) => {
+  const removeTodo = async (index) => {
     const updatedTodos = [...todos];
     updatedTodos.splice(index, 1);
+    await AsyncStorage.setItem("todos", JSON.stringify(updatedTodos));
     setTodos(updatedTodos);
   };
 
-  const toggleChecked = (index) => {
+  const toggleChecked = async (index) => {
     const updatedTodos = [...todos];
     updatedTodos[index].checked = !updatedTodos[index].checked;
+    await AsyncStorage.setItem("todos", JSON.stringify(updatedTodos));
     setTodos(updatedTodos);
   };
+
+  useEffect(() => {
+    const loadTodos = async () => {
+      const storedTodos = await AsyncStorage.getItem("todos");
+      if (storedTodos !== null) {
+        setTodos(JSON.parse(storedTodos));
+      }
+    };
+    loadTodos();
+  }, []);
 
   return (
     <ImageBackground
