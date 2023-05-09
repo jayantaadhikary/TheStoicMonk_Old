@@ -7,6 +7,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import Welcome from "./Screens/Welcome";
 import Home from "./Screens/Home";
 import Meditate from "./Screens/Meditate";
+import Todo from "./Screens/Todo";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -32,6 +33,11 @@ export default function App() {
         <Drawer.Screen
           name="Meditate"
           component={Meditate}
+          options={{ headerTitle: "" }}
+        />
+        <Drawer.Screen
+          name="Todo"
+          component={Todo}
           options={{ headerTitle: "" }}
         />
       </Drawer.Navigator>
