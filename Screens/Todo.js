@@ -77,7 +77,7 @@ export default function Todo() {
               <IconButton
                 icon="close"
                 color="#0B4B1D"
-                size={16}
+                size={18}
                 onPress={() => removeTodo(index)}
                 style={styles.removeButton}
               />
@@ -128,6 +128,7 @@ const styles = StyleSheet.create({
   },
   listContainer: {
     alignSelf: "stretch",
+    padding: 20,
   },
   todoItem: {
     flexDirection: "row",
@@ -140,6 +141,6 @@ const styles = StyleSheet.create({
   },
   removeButton: {
     backgroundColor: "transparent",
-    marginLeft: 20,
+    marginLeft: "auto",
   },
 });
