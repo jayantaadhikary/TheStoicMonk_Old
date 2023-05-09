@@ -9,6 +9,7 @@ import {
   ImageBackground,
 } from "react-native";
 import axios from "axios";
+import Footer from "../components/Footer";
 
 function Home() {
   const [quote, setQuote] = useState({});
@@ -52,6 +53,7 @@ function Home() {
           <Text style={styles.title}>Loading..</Text>
         </View>
       )}
+      <Footer />
     </ImageBackground>
   );
 }
