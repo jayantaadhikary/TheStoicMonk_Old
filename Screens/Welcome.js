@@ -9,7 +9,7 @@ import {
 
 function Welcome({ navigation }) {
   function pressHandler() {
-    navigation.navigate("Home");
+    navigation.navigate("DrawerNavigator");
   }
 
   return (

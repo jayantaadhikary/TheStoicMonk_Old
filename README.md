@@ -1,5 +1,7 @@
 ## TheStoicMonk
 
-> Thanks to [benhoneywill](https://github.com/benhoneywill) for his API through https://stoic-quotes.com
+This App displays Random Stoic Quotes from Seneca, Marcus Aurelius, and Epictetus. This app also contains a Meditation Counter to bring out your inner peace.
 
-This App displays Random Quotes. Built using React Native.
+Built using React Native.
+
+> Thanks to [benhoneywill](https://github.com/benhoneywill) for his API through https://stoic-quotes.com

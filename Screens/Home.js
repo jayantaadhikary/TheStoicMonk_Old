@@ -6,6 +6,7 @@ import {
   View,
   Platform,
   Pressable,
+  ImageBackground,
 } from "react-native";
 import axios from "axios";
 
@@ -26,20 +27,32 @@ function Home() {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Stoic Quote</Text>
-      <View style={styles.innerContainer}>
-        <View style={styles.gridView}>
-          <Text style={styles.quote}>{quote.text}</Text>
-          <Text style={styles.author}> - {quote.author}</Text>
+    <ImageBackground
+      style={{ flex: 1 }}
+      source={require("../assets/images/Background.png")}
+      resizeMode="cover"
+    >
+      {quote.text ? (
+        <View style={styles.container}>
+          <Text style={styles.title}>Stoic Quotes</Text>
+          <View style={styles.innerContainer}>
+            <View style={styles.gridView}>
+              <Text style={styles.quote}>{quote.text}</Text>
+              <Text style={styles.author}> - {quote.author}</Text>
+            </View>
+          </View>
+          <View style={styles.buttonContainer}>
+            <Pressable onPress={getQuote} android_ripple={{ color: "#bcdef2" }}>
+              <Text style={styles.message}>Refresh</Text>
+            </Pressable>
+          </View>
         </View>
-      </View>
-      <View style={styles.buttonContainer}>
-        <Pressable onPress={getQuote} android_ripple={{ color: "#bcdef2" }}>
-          <Text style={styles.message}>Refresh</Text>
-        </Pressable>
-      </View>
-    </View>
+      ) : (
+        <View style={styles.container}>
+          <Text style={styles.title}>Loading..</Text>
+        </View>
+      )}
+    </ImageBackground>
   );
 }
 
@@ -49,7 +62,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 40,
-    backgroundColor: "#F4FBFA",
+    // backgroundColor: "#F4FBFA",
   },
   innerContainer: {
     flexDirection: "row",
