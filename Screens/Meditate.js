@@ -40,47 +40,80 @@ function Meditate() {
     };
   }, []);
 
+  // useEffect(() => {
+  //   let interval = null;
+  //   if (isActive) {
+  //     interval = setInterval(() => {
+  //       setSeconds((seconds) => seconds - 1);
+  //     }, 1000);
+  //   } else {
+  //     clearInterval(interval);
+  //   }
+  //   return () => clearInterval(interval);
+  // }, [isActive]);
+
   useEffect(() => {
     let interval = null;
     if (isActive) {
       interval = setInterval(() => {
-        setSeconds((seconds) => seconds - 1);
+        setSeconds((prevSeconds) => {
+          const newSeconds = prevSeconds - 1;
+          if (newSeconds === 0) {
+            setIsActive(false);
+            try {
+              backgroundMusic.stopAsync();
+              backgroundMusic.setPositionAsync(0);
+              setSeconds(10 * 60);
+            } catch (error) {
+              console.log("Failed to stop background music", error);
+            }
+          }
+          return newSeconds;
+        });
       }, 1000);
     } else {
       clearInterval(interval);
     }
     return () => clearInterval(interval);
-  }, [isActive]);
+  }, [isActive, backgroundMusic]);
 
   const handleToggle = async () => {
     setIsActive(!isActive);
-    setSeconds(10 * 60);
 
-    if (!isActive) {
-      try {
+    try {
+      if (!isActive) {
+        await Audio.setAudioModeAsync({
+          allowsRecordingIOS: false,
+          staysActiveInBackground: true,
+          playsInSilentModeIOS: true,
+          shouldDuckAndroid: true,
+          playThroughEarpieceAndroid: false,
+        });
         await backgroundMusic.playAsync();
-      } catch (error) {
-        console.log("Failed to play background music", error);
-      }
-    } else {
-      try {
+      } else {
         await backgroundMusic.stopAsync();
         await backgroundMusic.setPositionAsync(0);
-      } catch (error) {
-        console.log("Failed to stop background music", error);
       }
+    } catch (error) {
+      console.log("Failed to play/stop background music", error);
+    }
+
+    if (!isActive) {
+      setSeconds(10 * 60);
     }
   };
 
   const handleReset = async () => {
     setIsActive(false);
-    setSeconds(10 * 60);
+
     try {
       await backgroundMusic.stopAsync();
       await backgroundMusic.setPositionAsync(0);
     } catch (error) {
       console.log("Failed to stop background music", error);
     }
+
+    setSeconds(10 * 60);
   };
 
   const formatTime = (time) => {
@@ -100,7 +133,7 @@ function Meditate() {
         <Text style={styles.title}>Meditation Zone</Text>
         <Pressable
           onPress={isActive ? handleReset : handleToggle}
-          android_ripple={{ color: "#bcdef2" }}
+          style={{ overflow: "hidden" }}
         >
           <View style={styles.buttonContainer}>
             <Text style={styles.quote}>{formatTime(seconds)}</Text>
@@ -158,6 +191,7 @@ const styles = StyleSheet.create({
     color: "#F4FBFA",
   },
   buttonContainer: {
+    overflow: "hidden",
     // backgroundColor:'#b3b3b3',
     // borderWidth: 2,
     borderRadius: 100,

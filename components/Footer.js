@@ -3,7 +3,7 @@ import { StyleSheet, View, Text } from "react-native";
 export default function Footer() {
   return (
     <View style={styles.footer}>
-      <Text style={styles.footerText}>&copy; Jayanta Adhikary 2023</Text>
+      <Text style={styles.footerText}>&copy; TheStoicMonk 2023</Text>
     </View>
   );
 }
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   footerText: {
     color: "#F4FBFA",
     fontWeight: "500",
-    fontStyle: 'italic',
+    fontStyle: "italic",
     fontSize: 12,
   },
 });

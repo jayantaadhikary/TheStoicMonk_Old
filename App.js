@@ -8,6 +8,7 @@ import Welcome from "./Screens/Welcome";
 import Home from "./Screens/Home";
 import Meditate from "./Screens/Meditate";
 import Todo from "./Screens/Todo";
+import Resources from "./Screens/Resources";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -38,6 +39,11 @@ export default function App() {
         <Drawer.Screen
           name="Todo"
           component={Todo}
+          options={{ headerTitle: "" }}
+        />
+        <Drawer.Screen
+          name="Resources"
+          component={Resources}
           options={{ headerTitle: "" }}
         />
       </Drawer.Navigator>

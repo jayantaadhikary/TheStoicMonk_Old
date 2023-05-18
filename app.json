@@ -1,10 +1,11 @@
 {
   "expo": {
+    "permissions": ["notifications", "audio", "ios.backgroundModes", "android.permission.RECEIVE_BOOT_COMPLETED"],
     "name": "TheStoicMonk",
     "slug": "TheStoicMonk",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icon2.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/meditate.png",
@@ -19,12 +20,18 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.png",
+        "foregroundImage": "./assets/icon2.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.jayantaadhikary.TheStoicMonk"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/meditate.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3e9d8613-21fd-4866-b800-d621468d5966"
+      }
     }
   }
 }
