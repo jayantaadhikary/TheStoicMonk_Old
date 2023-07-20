@@ -8,10 +8,11 @@ import {
 } from "react-native";
 import { useState, useEffect } from "react";
 import { Audio } from "expo-av";
+
 import Footer from "../components/Footer";
 
 function Meditate() {
-  const [seconds, setSeconds] = useState(10 * 60);
+  const [seconds, setSeconds] = useState(2 * 60);
   const [isActive, setIsActive] = useState(false);
   const [backgroundMusic, setBackgroundMusic] = useState(null);
 
@@ -63,7 +64,7 @@ function Meditate() {
             try {
               backgroundMusic.stopAsync();
               backgroundMusic.setPositionAsync(0);
-              setSeconds(10 * 60);
+              setSeconds(2 * 60);
             } catch (error) {
               console.log("Failed to stop background music", error);
             }
@@ -99,7 +100,7 @@ function Meditate() {
     }
 
     if (!isActive) {
-      setSeconds(10 * 60);
+      setSeconds(2 * 60);
     }
   };
 
@@ -113,7 +114,7 @@ function Meditate() {
       console.log("Failed to stop background music", error);
     }
 
-    setSeconds(10 * 60);
+    setSeconds(2 * 60);
   };
 
   const formatTime = (time) => {
