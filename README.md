@@ -6,4 +6,6 @@ This App displays Random Stoic Quotes from Seneca, Marcus Aurelius, and Epictetu
 
 Built using React Native.
 
+Download the Test App for Android in apk format from [Dropbox](https://www.dropbox.com/s/pcxw4u88nj4hsvs/TheStoicMonk%5BTestBuild%5D.apk)
+
 > Thanks to [benhoneywill](https://github.com/benhoneywill) for his API through https://stoic-quotes.com
