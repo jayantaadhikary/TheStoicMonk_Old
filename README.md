@@ -12,4 +12,5 @@ Built using React Native.
 
 
 The Screenshots for the app is attached below -
-<img src="./assets/screenshots/home.png" width="320px">
+
+<img src="./assets/screenshots/home.png" width="200px">
