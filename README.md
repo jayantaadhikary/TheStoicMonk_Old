@@ -10,10 +10,11 @@ Built using React Native.
 
 > Thanks to [benhoneywill](https://github.com/benhoneywill) for his API through https://stoic-quotes.com
 
-
 The Screenshots for the app is attached below -
 
+<p float="left">
 <img src="./assets/screenshots/home.png" width="200px">
 <img src="./assets/screenshots/quotes.png" width="200px">
 <img src="./assets/screenshots/meditate.png" width="200px">
 <img src="./assets/screenshots/todo.png" width="200px">
+<p>
