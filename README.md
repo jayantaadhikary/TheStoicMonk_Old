@@ -9,3 +9,7 @@ Download the Test App for Android in apk format from [Dropbox](https://www.dropb
 Built using React Native.
 
 > Thanks to [benhoneywill](https://github.com/benhoneywill) for his API through https://stoic-quotes.com
+
+
+The Screenshots for the app is attached below -
+<img src="./assets/screenshots/home.png" width="320px">
