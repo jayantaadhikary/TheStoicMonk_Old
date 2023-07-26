@@ -13,10 +13,10 @@ Built using React Native.
 The Screenshots for the app is attached below -
 
 <p align="middle">
-    <img src="./assets/screenshots/home.png" width="250px">
-    <img src="./assets/screenshots/quotes.png" width="250px">
+    <img src="./assets/screenshots/home.png" width="200px">
+    <img src="./assets/screenshots/quotes.png" width="200px">
 <p>
 <p align="middle">
-    <img src="./assets/screenshots/meditate.png" width="250px">
-    <img src="./assets/screenshots/todo.png" width="250px">
+    <img src="./assets/screenshots/meditate.png" width="200px">
+    <img src="./assets/screenshots/todo.png" width="200px">
 <p>
